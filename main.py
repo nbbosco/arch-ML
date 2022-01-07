@@ -14,12 +14,31 @@ model.allocate_tensors()
 input_details = model.get_input_details()
 output_details = model.get_output_details()
 
-class_mapping = {0: 'Building',
-                 1: 'Forest',
-                 2: 'Glacier',
-                 3: 'Mountain',
-                 4: 'Sea',
-                 5: 'Street'}
+class_mapping = {0: 'Achaemenid architecture',
+ 1: 'American Foursquare architecture',
+ 2: 'American craftsman style',
+ 3: 'Ancient Egyptian architecture',
+ 4: 'Art Deco architecture',
+ 5: 'Art Nouveau architecture',
+ 6: 'Baroque architecture',
+ 7: 'Bauhaus architecture',
+ 8: 'Beaux-Arts architecture',
+ 9: 'Byzantine architecture',
+ 10: 'Chicago school architecture',
+ 11: 'Colonial architecture',
+ 12: 'Deconstructivism',
+ 13: 'Edwardian architecture',
+ 14: 'Georgian architecture',
+ 15: 'Gothic architecture',
+ 16: 'Greek Revival architecture',
+ 17: 'International style',
+ 18: 'Novelty architecture',
+ 19: 'Palladian architecture',
+ 20: 'Postmodern architecture',
+ 21: 'Queen Anne architecture',
+ 22: 'Romanesque architecture',
+ 23: 'Russian Revival architecture',
+ 24: 'Tudor Revival architecture'}
 
 def model_predict(images_arr):
     predictions = [0] * len(images_arr)
@@ -27,14 +46,14 @@ def model_predict(images_arr):
     for i, val in enumerate(predictions):
         model.set_tensor(input_details[0]['index'], images_arr[i].reshape((1, 150, 150, 3)))
         model.invoke()
-        predictions[i] = model.get_tensor(output_details[0]['index']).reshape((6,))
+        predictions[i] = model.get_tensor(output_details[0]['index']).reshape((25,))
     
     prediction_probabilities = np.array(predictions)
     argmaxs = np.argmax(prediction_probabilities, axis=1)
 
     return argmaxs
 
-    
+
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
