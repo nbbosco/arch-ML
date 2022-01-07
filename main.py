@@ -108,12 +108,23 @@ async def main():
     <marquee width="525" behavior=alternate"><h1 style="color:blue;font-family:Roboto" >Upload Your Scenes</h1></marquee>
     <h3 style="font-family:Arial">We'll Try to Predict Which of These Categories They Are:</h3><br>
     """
-    original_paths = ['building_1.jpg', 'forest_1.jpg', 'glacier_1.jpg', 
-                      'mountain_1.jpg', 'sea_1.jpg', 'street_1.jpg']
+    original_paths = ['0.jpg', '1.jpg', '2.jpg', 
+                      '3.jpg', '4.jpg', '5.jpg',
+                      '6.jpg', '7.jpg', '8.jpg',
+                      '9.jpg', '10.jpg', '11.jpg',
+                      '12.jpg', '13.jpg', '14.jpg',
+                      '15.jpg', '16.jpg', '17.jpg',
+                      '18.jpg', '19.jpg', '20.jpg',
+                      '21.jpg', '22.jpg', '23.jpg',
+                      '24.jpg']
 
     full_original_paths = ['static/original/' + x for x in original_paths]
 
-    display_names = ['Building', 'Forest', 'Glacier', 'Mountain', 'Sea', 'Street']
+    display_names = ['Achaemenid architecture','American Foursquare architecture','American craftsman style','Ancient Egyptian architecture',
+    'Art Deco architecture','Art Nouveau architecture','Baroque architecture','Bauhaus architecture','Beaux-Arts architecture','Byzantine architecture',
+    'Chicago school architecture','Colonial architecture','Deconstructivism','Edwardian architecture','Georgian architecture','Gothic architecture',
+    'Greek Revival architecture','International style','Novelty architecture','Palladian architecture','Postmodern architecture','Queen Anne architecture',
+    'Romanesque architecture','Russian Revival architecture','Tudor Revival architecture']
 
     column_labels = []
     
