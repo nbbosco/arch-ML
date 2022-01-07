@@ -130,7 +130,6 @@ async def main():
     
     contentInput = """
     <br/>
-    <br/>
     <form  action="/uploadfiles/" enctype="multipart/form-data" method="post">
     <input name="files" type="file" multiple>
     <input type="submit">
@@ -138,7 +137,14 @@ async def main():
     </body>
     """
 
-    content = content + contentInput + get_html_table(full_original_paths, display_names, column_labels)
+    contentFooter = """
+    <br/>
+    <br/>
+    <h5 style="color:#92A9BD; font-family:Roboto">@Creator: nbbosco - Follow my projects: <a> https://github.com/nbbosco </a> </h5><br>
+    </body>
+    """
+
+    content = content + contentInput + get_html_table(full_original_paths, display_names, column_labels) + contentFooter
 
     return content
 
