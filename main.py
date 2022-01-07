@@ -8,7 +8,7 @@ from PIL import Image
 import tflite_runtime.interpreter as tflite
 
 
-model = tflite.Interpreter("static/model.tflite")
+model = tflite.Interpreter("static/model_arch.tflite")
 model.allocate_tensors()
 
 input_details = model.get_input_details()
