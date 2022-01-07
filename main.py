@@ -93,7 +93,7 @@ async def create_upload_files(files: List[UploadFile] = File(...)):
     table_html = get_html_table(image_paths, class_predictions, column_labels)
 
     content = head_html + """
-    <marquee width="525" behavior="alternate"><h1 style="color:red;font-family:Arial">Here's Our Predictions!</h1></marquee>
+    <marquee width="525" behavior="alternate"><h1 style="color:red;font-family:Roboto">Style Predictions!</h1></marquee>
     """ + str(table_html) + '''<br><form method="post" action="/">
     <button type="submit">Home</button>
     </form>'''
@@ -105,8 +105,8 @@ async def create_upload_files(files: List[UploadFile] = File(...)):
 @app.get('/', response_class=HTMLResponse)
 async def main():
     content = head_html + """
-    <marquee width="525" behavior=alternate"><h1 style="color:blue;font-family:Roboto" >Upload Your Scenes</h1></marquee>
-    <h3 style="font-family:Arial">We'll Try to Predict Which of These Categories They Are:</h3><br>
+    <marquee width="525" behavior=alternate"><h1 style="color:#7C99AC; font-family:Roboto">Architecture Style - Machine Learning</h1></marquee>
+    <h3 style="font-family:Roboto">Upload an image of the building to predict his style</h3><br>
     """
     original_paths = ['0.jpg', '1.jpg', '2.jpg', 
                       '3.jpg', '4.jpg', '5.JPG',
@@ -153,7 +153,7 @@ head_html = """
 def get_html_table(image_paths, names, column_labels):
     s = '<table align="center">'
     if column_labels:
-        s += '<tr><th><h4 style="font-family:Arial">' + column_labels[0] + '</h4></th><th><h4 style="font-family:Arial">' + column_labels[1] + '</h4></th></tr>'
+        s += '<tr><th><h4 style="font-family:Roboto">' + column_labels[0] + '</h4></th><th><h4 style="font-family:Roboto">' + column_labels[1] + '</h4></th></tr>'
     
     for name, image_path in zip(names, image_paths):
         s += '<tr><td><img height="80" src="/' + image_path + '" ></td>'
