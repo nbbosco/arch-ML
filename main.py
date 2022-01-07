@@ -128,9 +128,7 @@ async def main():
 
     column_labels = []
     
-    content = content + get_html_table(full_original_paths, display_names, column_labels)
-
-    content = """
+    contentInput = """
     <br/>
     <br/>
     <form  action="/uploadfiles/" enctype="multipart/form-data" method="post">
@@ -138,8 +136,10 @@ async def main():
     <input type="submit">
     </form>
     </body>
-    """ + content
-    
+    """
+
+    content = content + contentInput + get_html_table(full_original_paths, display_names, column_labels)
+
     return content
 
 head_html = """
@@ -153,10 +153,10 @@ head_html = """
 def get_html_table(image_paths, names, column_labels):
     s = '<table align="center">'
     if column_labels:
-        s += '<tr><th><h4 color:#92A9BD; style="font-family:Roboto">' + column_labels[0] + '</h4></th><th><h4 color:#92A9BD; style="font-family:Roboto">' + column_labels[1] + '</h4></th></tr>'
+        s += '<tr><th><h4 color:#7C99AC; style="font-family:Roboto">' + column_labels[0] + '</h4></th><th><h4 color:#92A9BD; style="font-family:Roboto">' + column_labels[1] + '</h4></th></tr>'
     
     for name, image_path in zip(names, image_paths):
-        s += '<tr><td><img height="80" width="80" src="/' + image_path + '" ></td>'
+        s += '<tr><td><img height="80" width="100" src="/' + image_path + '" ></td>'
         s += '<td style="text-align:center">' + name + '</td></tr>'
     s += '</table>'
     
