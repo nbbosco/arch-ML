@@ -88,12 +88,12 @@ async def create_upload_files(files: List[UploadFile] = File(...)):
 
     class_predictions = [class_mapping[x] for x in class_indexes]
 
-    column_labels = ["Image", "Prediction"]
+    column_labels = ["Building", "Prediction"]
 
     table_html = get_html_table(image_paths, class_predictions, column_labels)
 
     content = head_html + """
-    <marquee width="525" behavior="alternate"><h1 style="color:red;font-family:Roboto">Style Predictions!</h1></marquee>
+    <marquee width="525" behavior="alternate"><h1 style="color:#FFEFEF;font-family:Roboto">Style Predictions</h1></marquee>
     """ + str(table_html) + '''<br><form method="post" action="/">
     <button type="submit">Home</button>
     </form>'''
@@ -106,7 +106,7 @@ async def create_upload_files(files: List[UploadFile] = File(...)):
 async def main():
     content = head_html + """
     <marquee width="525" behavior=alternate"><h1 style="color:#7C99AC; font-family:Roboto">Architecture Style - Machine Learning</h1></marquee>
-    <h3 style="font-family:Roboto">Upload an image of the building to predict his style</h3><br>
+    <h3 style="color:#92A9BD; font-family:Roboto">Upload an image of the building to predict his style</h3><br>
     """
     original_paths = ['0.jpg', '1.jpg', '2.jpg', 
                       '3.jpg', '4.jpg', '5.JPG',
@@ -130,7 +130,7 @@ async def main():
     
     content = content + get_html_table(full_original_paths, display_names, column_labels)
 
-    content = content + """
+    content = """
     <br/>
     <br/>
     <form  action="/uploadfiles/" enctype="multipart/form-data" method="post">
@@ -138,7 +138,7 @@ async def main():
     <input type="submit">
     </form>
     </body>
-    """
+    """ + content
     
     return content
 
@@ -146,17 +146,17 @@ head_html = """
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
-<body style="background-color:lightgrey;">
+<body style="background-color:#D3DEDC;">
 <center>
 """
 
 def get_html_table(image_paths, names, column_labels):
     s = '<table align="center">'
     if column_labels:
-        s += '<tr><th><h4 style="font-family:Roboto">' + column_labels[0] + '</h4></th><th><h4 style="font-family:Roboto">' + column_labels[1] + '</h4></th></tr>'
+        s += '<tr><th><h4 color:#92A9BD; style="font-family:Roboto">' + column_labels[0] + '</h4></th><th><h4 color:#92A9BD; style="font-family:Roboto">' + column_labels[1] + '</h4></th></tr>'
     
     for name, image_path in zip(names, image_paths):
-        s += '<tr><td><img height="80" src="/' + image_path + '" ></td>'
+        s += '<tr><td><img height="80" width="80" src="/' + image_path + '" ></td>'
         s += '<td style="text-align:center">' + name + '</td></tr>'
     s += '</table>'
     
