@@ -8,7 +8,7 @@ from PIL import Image
 import tflite_runtime.interpreter as tflite
 
 
-model = tflite.Interpreter("static/model_arch.tflite")
+model = tflite.Interpreter("static/model_arch_10.tflite")
 model.allocate_tensors()
 
 input_details = model.get_input_details()
@@ -93,7 +93,7 @@ async def create_upload_files(files: List[UploadFile] = File(...)):
     table_html = get_html_table(image_paths, class_predictions, column_labels)
 
     content = head_html + """
-    <marquee width="525" behavior="alternate"><h1 style="color:#FFEFEF;font-family:Roboto">Style Predictions</h1></marquee>
+    <marquee width="525" behavior="alternate"><h1 style="color:#7C99AC;font-family:Roboto">Style Prediction</h1></marquee>
     """ + str(table_html) + '''<br><form method="post" action="/">
     <button type="submit">Home</button>
     </form>'''
@@ -140,7 +140,7 @@ async def main():
     contentFooter = """
     <br/>
     <br/>
-    <h5 style="color:#92A9BD; font-family:Roboto">@Creator: nbbosco - Follow my projects: <a> https://github.com/nbbosco </a> </h5><br>
+    <h5 style="color:#92A9BD; font-family:Roboto">@Creator: nbbosco - Follow my projects: </h5><a> https://github.com/nbbosco </a><br>
     </body>
     """
 
