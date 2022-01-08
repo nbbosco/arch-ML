@@ -8,7 +8,7 @@ from PIL import Image
 import tflite_runtime.interpreter as tflite
 
 
-model = tflite.Interpreter("static/model_arch_10.tflite")
+model = tflite.Interpreter("static/model_arch_20.tflite")
 model.allocate_tensors()
 
 input_details = model.get_input_details()
@@ -140,7 +140,7 @@ async def main():
     contentFooter = """
     <br/>
     <br/>
-    <h5 style="color:#92A9BD; font-family:Roboto">@Creator: nbbosco - Follow my projects: </h5><a> https://github.com/nbbosco </a><br>
+    <h5 style="color:#92A9BD; font-family:Roboto">@Creator: nbbosco - Follow my projects: <a href="https://github.com/nbbosco">GitHub</a></h5><br>
     </body>
     """
 
